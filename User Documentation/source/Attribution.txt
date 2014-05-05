@@ -1,0 +1,16 @@
+Attribution
+*************************************
+The development of this software was made possible using the following components:
+
+* CouchDB
+* Bootstrap
+* jQuery
+* Python
+* sphinx-doc
+* bootstrapx-clickover.js
+* bootstrap-dialog.js
+* jquery.tablesorter.js
+* jquery.browser.js
+* jquery.form.js
+* timeline.js
+* moment.js

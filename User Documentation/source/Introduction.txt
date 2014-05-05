@@ -1,0 +1,6 @@
+.. sectnum::
+    :suffix: .
+
+Introduction
+****************************************************************************************************************************************************************
+Libellus is an open source and ultra portable journal tool for crisis management. It runs in all modern web browsers, ready to use out of the box.

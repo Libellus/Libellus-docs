@@ -1,0 +1,229 @@
+.. sectnum::
+    :suffix: .
+    :start: 2
+    
+User manual
+*************************************
+Start Libellus
+========================
+
+To start Libellus, find the file on the USB-drive with the name matching your operating system.
+If you are running Microsoft Windows 7 or 8, the name of the file will be *windows.bat*.
+
+.. figure:: /_static/folder.png
+   :align: center
+   :alt: This window shows the folder structure on a windows-machine.
+   
+   This window shows the folder structure on a windows-machine.
+
+This file is a startup script that will perform some processes in the background to get Libellus up and running. All the actions will be run from a console window.
+
+.. figure:: /_static/console.png
+   :align: center
+
+   This is the typical console-window. Here shown on a computer running Microsoft Windows.
+
+Normally all user accounts can run this file, but if the script senses that it needs elevation, you will be prompted with a message telling you how to do this.
+
+Libellus will be needing access to the network for communication with other running instances of the software. To enable this, click allow access in the two dialog boxes asking for permissions. 
+
+.. figure:: /_static/fw_erl.png
+   :align: center
+
+.. figure:: /_static/fw_python.png
+   :align: center
+
+After some seconds, your default browser will open and be directed at the localhost address (https://127.0.0.1:6984/libellus/index.html) 
+All communication in Libellus is transferred encrypted using the TLS technology. To enable this to run on a local computer, Libellus uses a self-signed certificate. This will make your browser display a warning message like the one below. Click on *Proceed anyway* to continue.
+
+.. figure:: /_static/ssl.png
+   :align: center
+
+Login
+========================
+After the startup process, the following screen is the first you will meet.
+
+.. figure:: /_static/startscreen.png
+   :align: center
+
+The only thing you need to enter before you can use the program is a username. There is no users registered beforehand, which makes this the registration. The username can be whatever you want it to be, but we suggest to use something that identifies you, as well to be unique. Your first name will not be a good idea, because there are others with the same first name. We recommend your organizational email address, because it’s globally unique and will usually identify you by the screen name. If you need to change the username, this can be done by clicking on the *Signed in as <username>* on the menu. 
+
+Clock
+========================
+In the upper right corner, you will see two datetimes. Local Time is the time taken from your computer, which is presented in the local timezone the computer is set to. Internet Time is a time taken from an external source on the Internet. This will always be presented in UTC plus 0 hours. If the Local Time and Internet Time is more or less in sync, the circle on the right side will be green. If both clocks are more than 3 seconds apart, the circle will be orange. If Libellus doesn’t have access to the Internet, the green circle will be red. You can also hold your mouse over the circle and it will show you the offset between both times.
+
+.. figure:: /_static/clock.png
+   :align: center
+
+If the clocks are not in sync, we recommend that you change your computer time manually, or that you update it automatically. You can’t do this from Libellus, but most operating systems support it. We suggest that all clients on the network have the same local time. 
+
+Every entry will be stored with local time, and if Libellus has access to Internet time, it will also store this. Even if you start to log without Internet time, but get access later, Libellus will calculate the offset and update every entry and add Internet time. As another method to ensure integrity, Libellus will log every time the client change the computer time.
+
+
+The Journal View
+========================
+The default screen is the journal view, which is probably where you will spend the most time.
+Right under the main menu, you can see some filtering options, which we will cover later, when we got some data to apply filters to. 
+
+.. figure:: /_static/journal8.png
+   :align: center
+
+Under the filtering options, you see some headers for the table. Here is the explanations for all the columns 
+
+* **Nr.** - This is a running number to have something to refer to. 
+* **Author** - This is the user that made the journal entry
+* **Subject** - The subject of the entry.
+* **Time** - This is the happening time, when the event took place
+* **Class** - This is the classification of the entry. Hold your pointer over the text to show the full content.
+* **#Com** - This is number of comments to the journal entry
+* **#Act** - This is the number of actions to the journal entry
+* **Added (Internet)** - This is the time taken from an external source on the Internet, when the entry was stored into the Libellus client. This may be displaying N/A if the client didn’t have access to the Internet when the entry was stored.
+* **Added (Local)** - This is the time taken from the clients computer when the entry was stored in the the database
+
+The last thing you may have noticed is the footer at the bottom with the caption Write New Journal Entry, which will be covered next.
+
+Write New Journal Entry
+========================
+
+When you have clicked on the *Write New Journal Entry* bar, a form will appear. The subject should explain in short what the entry is about and content should contain the full story of the event. Keywords is a free text input field, where you can write words to associate the entry with. This is a feature to make it easier to search for entries later. *Happening time* should be in the past, when the event you are writing about took place. This should not be confused with *Added (Internet)* or *Added (Local)*, which is when the journal entry was added. The drop down menu with predefined classification values should describe who can know about the information you are writing about. Libellus does not handle classification different, but the organization that use Libellus might. 
+
+.. figure:: /_static/journal1.png
+   :align: center
+
+When you have filled in the values and clicked on *Add Entry*, you can close the form by clicking on it again. You can now see that the entry is displayed in the journal, and you can expand it by simply clicking on it. Now your screen should look something like the following.
+
+.. figure:: /_static/journal2.png
+   :align: center
+
+Notice that you can find the content and keywords under the row with metadata.
+
+Appendices
+========================
+As you can see in the previous image, there is a form inside the journal table. This is where you can add appendices, i.e. comments and actions. The first drop down menu you see is where 
+you choose whether to create a comment or action. The difference of these alternatives, is that a comment is to add information to the journal entry and actions is anything that needs to be done in relations to the journal entry.
+
+Comments
+-----------------
+When creating a comment, you have two choices of the type of attachment. The first is to upload a digital file. Just hit the browse button and a file manager will appear, where you can find your file, but be careful to not upload large files. This is because the file may be replicated amongst many clients and take up much bandwidth. The default max file size is set to 10 megabytes. The second alternative is filed copy. 
+
+.. figure:: /_static/filed_copy.png
+   :align: center
+
+Let's say you have a physical paper, hard drive, CD or basically something that you can't upload, or is too big to be uploaded, but you want the journal to keep a record of. Filed copy makes you do this, by a random generated reference string. Check the filed copy checkbox and write the string on the physical object, or maybe use a post-it note on it, before you hit the submit button. 
+
+Actions
+-----------------
+To add an action instead of a comment, just change the value on the drop down box. Now you will see some other input fields. Here you can write a deadline to when the action needs to be complete. When clicking in the field, it will get a default value, which is the current date and time, but should be set to a time in the future. The second new input field is who is responsible for the task. This could be his screen name on Libellus or his real name, but it’s up to the organization to choose what to use.
+
+.. figure:: /_static/journal3.png
+   :align: center
+
+When the action is added, you will see that the entry like in the image below. The row is highlighted in blue, because the deadline is over an hour due in the future. The color will change to orange when the deadline is less than an hour and turn red when the time limit is in the past. The row will be green when the action is solved, and get a strike through when rejected, which we will get to later.
+
+.. figure:: /_static/actions.png
+   :align: center
+
+There is another feature that comments doesn't have, which is a goto link on the right, depicted with a pointing finger. When clicking on it, you will be directed to the *Actions View* and the target action entry will be expanded. 
+
+Sorting
+========================
+You can sort every table by clicking on the headers. Click once for descending and twice for ascending sorting. You can also sort by multiple values by holding down the shift key while clicking. 
+
+
+The Actions View
+========================
+You can get to the action page by either clicking on Actions in the main menu, or click goto on the inline action entry. The first thing you can notice, is the button on the right, which has changed color to orange in the time between. This button will like the row on the journal page, change color according to the time left for the deadline. The caption on the button now displays *Unsolved*, naturally because no one has solved it yet. The metadata is just like before, but with one exception, that is *Marked solved by*, which is who updated the status of the entry. 
+
+.. figure:: /_static/actions6.png
+   :align: center
+
+We can also see the complete journal entry that the action are referring to. This is because you can read it and instantly know which journal entry the action are referring to. You also have a goto button here on the right side, which will take you back to the target entry in the journal view.
+
+If an action is solved, just write a comment and select *Solved* in the drop down menu. Now this is what you will see. The status button now displays *Solved* with a green background. The comment and who marked it also are shown. 
+
+.. figure:: /_static/actions5.png
+   :align: center
+
+The other alternative to an action is to reject it. This can be useful if the action is not possible to complete or that the deadline is too strict. The image below illustrates how this looks like.
+ 
+.. figure:: /_static/actions7.png
+   :align: center
+
+Note that once an action is marked it can not be edited later.
+
+The Visualize View
+========================
+The visualize view shows the journal information on a different perspective. In the example below, you can see a journal entry and an action. Actions will follow the same coloring as they do on the other views, and stretch in length according to the time frame given by the deadline. Use the buttons to navigate in the timeline, or hold and move your mouse in the direction you want to expand the timeline to left or right. You can also zoom in and out with the scroll wheel on your mouse. As you can see, there is a red vertical line in the timeline. This is to mark the current time, which you can always move instantly to by clicking on the button with the caption *Move to current time*.
+
+.. figure:: /_static/visualize.png
+   :align: center
+
+The visualization view is very much under development, and will most likely get an upgrade in the future.
+
+The Chat View
+========================
+The chat is very simple in design and features, by which the only feature is to write to all. On the right side you have a list that displays all online users, with a number in parentheses to indicate how much latency they got. i.e. how much time since they were online. If a user have zero in latency, that doesn't need to mean they are online in the chat room, because the latency will update with a frequent interval as long as they have Libellus running.
+
+.. figure:: /_static/chat.png
+   :align: center
+
+The chat is meant to be used for anything that is not important enough to become an independant journal entry, but can really be used to anything. For instance a bulletin board to keep track of who is available or not. Keep in mind that everything you write in the chat will be logged and synchronized with other Libellus instances on the network. The last thing to know is that when you click on the input field, or hit the submit button, you will automaticly be scrolled down to the bottom of the chat history.
+
+
+The Utils View
+========================
+This is a view where you can do multiple tasks, like exporting data and view replication status.
+
+.. figure:: /_static/utils.png
+   :align: center
+
+Export
+-----------------
+The first section you see is for exporting. Here you can extract the journal and the chat database. You can download the complete and raw database file, which you can save and add back into Libellus later. View the maintenance guide for an explanation for how to do this. If you export as XML or JSON, you don’t get attachments and it’s not possible to import these formats into the database again after exporting. This can be used with import to other software.
+
+Visit externally
+-----------------
+The section in the middle of the screen is where you can see your own IP address and find the URL for your running instance of Libellus. You can use this to visit your instance externally on other devices, like smartphones or tablets.
+
+Add replication
+-----------------
+At startup Libellus will detect other running instances of the software and add them to the replication automatically. But in some cases it may be useful to manually set up replication to other instance. This can for example be an instance on the Internet which may connect multiple local networks.
+
+View status and remove replications
+----------------------------------------
+On the bottom you can see the status for all the replications. If the status shows a green box with the caption *Triggered*, like in the image above, everything is as it should. If you see a red box with the word *Error* then something is wrong. This will most likely be the cause of other clients going offline.
+
+Finally you can remove all replications by clicking on the button at the bottom right corner.
+
+Filters
+========================
+The journal view has filters that can be applied to remove everything you don’t want to see.
+There is two possible ways to filter out data, by keyword and datetime. Filtering on both does work, but the last option chosen will be prioritized. The solution is to click on the input field to which you want top priority.
+
+Filter by keywords
+-------------------
+To search for a word, you can enter it in the input field on the right. All search words will be matched against everything in the journal entry or an appendix related to an entry. You can for example search for a keyword, person, filename or a filed copy. The search is case insensitive and will with each keystroke adjust the filters to create a real time feeling. The button with the trash can, will as implied empty the input field for text.
+
+Here you can see the journal table without any filters. We got two journal entries, which looks almost the same, but with one difference. 
+
+.. figure:: /_static/filter2.png
+   :align: center
+
+Here is the same table, but here we only show entries that has the word *another* in it.
+
+
+.. figure:: /_static/filter1.png
+   :align: center
+
+Filter by datetime
+-------------------
+When filtering on time you have three alternatives. You can use the *From* input field to set a start time, where you will only see entries that has local added time since the date time you choose. This can for instance be used to get all updates after a status meeting.
+
+.. figure:: /_static/filter3.png
+   :align: center
+
+You can also use the *To* option to only show entries up to the given date time.
+The last alternative is to use both, to only get entries that is within the time frame from both *To* and *From*.
+
+.. figure:: /_static/filter4.png
+   :align: center

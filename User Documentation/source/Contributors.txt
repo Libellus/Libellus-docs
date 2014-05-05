@@ -1,0 +1,11 @@
+Contributors
+*************************************
+
+|location_link|
+
+.. |location_link| raw:: html
+
+   <ul class="simple">
+   <li><a href="https://github.com/dsolstad" target="_blank">dsolstad</a></li>
+   <li><a href="https://github.com/ojeey" target="_blank">ojeey </a></li>
+   </ul>
