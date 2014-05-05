@@ -1,3 +1,7 @@
+## User Documentation
+
+This documentation describes how to use the software.
+
 ## How to edit
 
 Install python-sphinx
