@@ -1,7 +1,0 @@
-Folder Structure
-***********************************************
-All database files are stored in the db_files folder.
-The TLS key pair can be found in */libellus/config/cert*
-
-.. figure:: /_static/folder_structure.png
-   :align: center
