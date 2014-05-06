@@ -25,6 +25,7 @@ Libellus 1.0 Maintenance Documentation
    libellus_config
    install_linux
    install_osx
+   time_source
    Edit and Update Files on GNU/Linux
    changelog
    contributors
