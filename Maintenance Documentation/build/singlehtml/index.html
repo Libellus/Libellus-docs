@@ -300,13 +300,15 @@ $ sudo pip install --upgrade couchapp
 </pre></div>
 </div>
 <p>Run the setup_database.sh file to add databases and views:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ chmod +x ./setup_database.sh
-$ ./setup_database.sh
+<div class="highlight-python"><div class="highlight"><pre>$ chmod +x ./tools/libellus_setup_database.sh
+$ ./tools/libellus_setup_database.sh
 </pre></div>
 </div>
 <p>Now view Libellus in your web browser at <a class="reference external" href="http://localhost:5984/libellus/_design/main/index.html">http://localhost:5984/libellus/_design/main/index.html</a>.</p>
-<p>To get a more features of the software, like automatically discovering and replication of multiple Libellus instances, you need to do the following:</p>
-<p>Download the Python script <em>libellus_multicast_1.5.py</em> from the source repository. Generate private/public key pair and change some lines in the configuration. The default Libellus/CouchDB configuration file is <em>default.ini</em>. This can be found at <a class="reference external" href="https://github.com/Libellus/Libellus-portable/tree/master/1.0/libellus/windows_database/CouchDB/etc/couchdb">https://github.com/Libellus/Libellus-portable/tree/master/1.0/libellus/windows_database/CouchDB/etc/couchdb</a></p>
+<p>To get a more features of the software you need to do the following:</p>
+<p>Use the script in <em>tools/libellus_multicast.py</em> to find other Libellus instances and add these to re replication.</p>
+<p>Generate private/public key pair add these to the CouchDB configuration file as described below.</p>
+<p>The default Libellus/CouchDB configuration file is <em>default.ini</em>. This can be found at <a class="reference external" href="https://github.com/Libellus/Libellus-portable/tree/master/1.0/libellus/windows_database/CouchDB/etc/couchdb">https://github.com/Libellus/Libellus-portable/tree/master/1.0/libellus/windows_database/CouchDB/etc/couchdb</a></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">httpd_global_handlers</span><span class="p">]</span>
 <span class="n">journal</span><span class="o">.</span><span class="n">couch</span> <span class="o">=</span> <span class="p">{</span><span class="n">couch_httpd_misc_handlers</span><span class="p">,</span> <span class="n">handle_utils_dir_req</span><span class="p">,</span> <span class="s">&quot;../var/lib/couchdb/journal.couch &quot;</span><span class="p">}</span>
 
@@ -348,6 +350,59 @@ repl = your_path_here/libellus_multicast_1.5.py
 <span id="document-install_osx"></span><div class="section" id="how-to-install-libellus-on-apple-os-x">
 <h2>How to Install Libellus on Apple OS X<a class="headerlink" href="#how-to-install-libellus-on-apple-os-x" title="Permalink to this headline">¶</a></h2>
 <p>Just like the guide on how to install on Ubuntu, but download CouchDB for OS X at <a class="reference external" href="http://couchdb.apache.org">http://couchdb.apache.org</a>.</p>
+</div>
+<span id="document-time_source"></span><div class="section" id="add-another-time-source">
+<h2>Add Another Time Source<a class="headerlink" href="#add-another-time-source" title="Permalink to this headline">¶</a></h2>
+<p>Libellus relies on two external time sources on the Internet. One is <a class="reference external" href="https://timeapi.herokuapp.com/utc/now.json">https://timeapi.herokuapp.com/utc/now.json</a> and the other is <a class="reference external" href="https://ojeey.pw/libellus/gettime.php">https://ojeey.pw/libellus/gettime.php</a> which is as for now supported by Libellus.</p>
+<p>To add another time source you can use the following PHP script:</p>
+<div class="highlight-python"><div class="highlight"><pre>&lt;?php
+
+// Requires the php5-json package. Debian/Ubuntu: sudo apt-get install php5-json
+
+ini_set(&#39;display_errors&#39;, 0);
+
+header(&#39;Content-Type: application/json&#39;);
+
+// Returns time in millitime
+function millitime() {
+    $microtime = microtime();
+    $comps = explode(&#39; &#39;, $microtime);
+    return sprintf(&#39;%d%03d&#39;, $comps[1], $comps[0] * 1000);
+}
+
+// Returns a full datatime string
+function fulldatetime() {
+    return date(&#39;c&#39;);
+}
+
+$datetime = array();
+
+$datetime[&#39;unixTimestamp&#39;] = millitime();
+$datetime[&#39;dateString&#39;] = fulldatetime();
+
+if (isset($_GET[&#39;callback&#39;])) {
+    echo $_GET[&#39;callback&#39;] . &quot;(&quot;;
+}
+
+echo json_encode($datetime);
+
+if (isset($_GET[&#39;callback&#39;])) {
+    echo &quot;)&quot;;
+}
+
+?&gt;
+</pre></div>
+</div>
+<p>Call the script with a callback function name to get the time in JSONP.</p>
+<p>Requested URL:</p>
+<div class="highlight-python"><div class="highlight"><pre>https://ojeey.pw/libellus/gettime.php?callback=foo
+</pre></div>
+</div>
+<p>Result:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">foo</span><span class="p">({</span><span class="s">&quot;unixTimestamp&quot;</span><span class="p">:</span><span class="s">&quot;1399373804852&quot;</span><span class="p">,</span><span class="s">&quot;dateString&quot;</span><span class="p">:</span><span class="s">&quot;2014-05-06T12:56:44+02:00&quot;</span><span class="p">})</span>
+</pre></div>
+</div>
+<p>Note that the time server needs to run https when running Libellus under https.</p>
 </div>
 <span id="document-changelog"></span><div class="section" id="changelog">
 <h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
@@ -397,6 +452,7 @@ a copy of the License at: apache.org/licenses/LICENSE-2.0</p>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-libellus_config">Libellus Configuration File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-install_linux">How to Install Libellus on Ubuntu Linux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-install_osx">How to Install Libellus on Apple OS X</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-time_source">Add Another Time Source</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-contributors">Contributors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#document-license">License</a></li>

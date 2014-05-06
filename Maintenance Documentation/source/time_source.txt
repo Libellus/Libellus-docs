@@ -3,8 +3,7 @@ Add Another Time Source
 
 Libellus relies on two external time sources on the Internet. One is https://timeapi.herokuapp.com/utc/now.json and the other is https://ojeey.pw/libellus/gettime.php which is as for now supported by Libellus.
 
-To add another time source you can use the following PHP script
-.. code-block:: php
+To add another time source you can use the following PHP script::
 
     <?php
 
@@ -43,4 +42,13 @@ To add another time source you can use the following PHP script
 
     ?>
     
+Call the script with a callback function name to get the time in JSONP.
+ 
+Requested URL::
+
+    https://ojeey.pw/libellus/gettime.php?callback=foo
+Result::
+
+    foo({"unixTimestamp":"1399373804852","dateString":"2014-05-06T12:56:44+02:00"})
+
 Note that the time server needs to run https when running Libellus under https.
