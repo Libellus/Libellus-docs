@@ -1,8 +1,0 @@
-.. sectnum::
-    :suffix: .
-
-Libellus Configuration File
-********************************************
-The configuration file for Libellus can be found in */_attachments/script/libellus_config.js*
-The file is well commented and should be straightforward to edit. Here you can for the most part edit time intervals, but also max upload size and the classifications values. 
-
