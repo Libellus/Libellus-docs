@@ -34,14 +34,18 @@ Push Libellus to CouchDB::
 
 Run the setup_database.sh file to add databases and views::
 
-    $ chmod +x ./setup_database.sh
-    $ ./setup_database.sh
+    $ chmod +x ./tools/libellus_setup_database.sh
+    $ ./tools/libellus_setup_database.sh
 
 Now view Libellus in your web browser at http://localhost:5984/libellus/_design/main/index.html.
 
-To get a more features of the software, like automatically discovering and replication of multiple Libellus instances, you need to do the following:
+To get a more features of the software you need to do the following:
 
-Download the Python script *libellus_multicast_1.5.py* from the source repository. Generate private/public key pair and change some lines in the configuration. The default Libellus/CouchDB configuration file is *default.ini*. This can be found at https://github.com/Libellus/Libellus-portable/tree/master/1.0/libellus/windows_database/CouchDB/etc/couchdb
+Use the script in *tools/libellus_multicast.py* to find other Libellus instances and add these to re replication.
+
+Generate private/public key pair add these to the CouchDB configuration file as described below. 
+
+The default Libellus/CouchDB configuration file is *default.ini*. This can be found at https://github.com/Libellus/Libellus-portable/tree/master/1.0/libellus/windows_database/CouchDB/etc/couchdb
 
 ::
 
