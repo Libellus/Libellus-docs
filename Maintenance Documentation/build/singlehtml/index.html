@@ -1,0 +1,418 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Libellus 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="top" title="None" href="index.html#document-index" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html#document-index">Libellus 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="libellus-1-0-maintenance-documentation">
+<h1>Libellus 1.0 Maintenance Documentation<a class="headerlink" href="#libellus-1-0-maintenance-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<span id="document-introduction"></span><div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This maintenance documentation show you how to prepare the surrounding system and how to support further development. We recommend that a Unix-like operating system is used for development, since the necessary tools are easily available there.</p>
+</div>
+<span id="document-technologies"></span><div class="section" id="technologies">
+<h2>Technologies<a class="headerlink" href="#technologies" title="Permalink to this headline">¶</a></h2>
+<p>Libellus uses the following core technology to work.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="23%" />
+<col width="20%" />
+<col width="19%" />
+<col width="15%" />
+<col width="23%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Technology</th>
+<th class="head">Version</th>
+<th class="head">Homepage</th>
+<th class="head">Licence</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>CouchDB</td>
+<td>couchdb-1.5.1_R14B04</td>
+<td>couchdb.apache.org</td>
+<td>Apache 2.0</td>
+<td>Database and web server</td>
+</tr>
+<tr class="row-odd"><td>Portable Python (win)</td>
+<td>2.7.5.1</td>
+<td>portablepython.com</td>
+<td>Python Licence</td>
+<td>Pre-conf Python install</td>
+</tr>
+</tbody>
+</table>
+</div>
+<span id="document-folder_structure"></span><div class="section" id="folder-structure">
+<h2>Folder Structure<a class="headerlink" href="#folder-structure" title="Permalink to this headline">¶</a></h2>
+<p>All database files are stored in the db_files folder.
+The TLS key pair can be found in <em>/libellus/config/cert</em></p>
+<div class="figure align-center">
+<img alt="_images/folder_structure.png" src="_images/folder_structure.png" />
+</div>
+</div>
+<span id="document-extract_database"></span><div class="section" id="how-to-extract-the-database-files-from-libellus">
+<h2>How to Extract the Database Files from Libellus<a class="headerlink" href="#how-to-extract-the-database-files-from-libellus" title="Permalink to this headline">¶</a></h2>
+<p>The raw database files for Libellus can be extracted in two ways from the system.</p>
+<p><strong>On a running system:</strong></p>
+<p>Open the <em>Utils View</em> from the menu.
+Download the two databases <em>journal</em> and <em>chat</em> by clicking on the download links. This can be performed on a live system without data loss.</p>
+<p><strong>Extract it from the folder structure:</strong></p>
+<p>Enter the root directory of the USB stick. Open <em>libellus/db_files</em> and copy the two files named <em>journal.couch</em> and <em>chat.couch</em>.</p>
+<p>Store the files in a safe place. We recommend that you compute hash values for the two files, and store them in a secure separate location. Then before you are going to import the database files again, compute a hash value of the files again, and compare them to the previously generated hash values.</p>
+</div>
+<span id="document-prepare_install"></span><div class="section" id="how-to-prepare-and-install-libellus-to-a-usb-stick">
+<h2>How to Prepare and Install Libellus to a USB stick<a class="headerlink" href="#how-to-prepare-and-install-libellus-to-a-usb-stick" title="Permalink to this headline">¶</a></h2>
+<p>Use a USB stick with at least 8 GB of storage space.
+Libellus itself uses approximately 300 MB of space, and the rest will be used for the logging data.</p>
+<p>Format the device to the exFAT file system. This filesystem is used for cross compatibility between Microsoft Windows and Apple Macintosh systems. It also has support for files larger than 4 GB.</p>
+<p>Download the newest portable version of Libellus from libellus.no.
+Extract the whole package into the root directory of the USB stick</p>
+</div>
+<span id="document-import_database"></span><div class="section" id="how-to-import-the-database-files-to-libellus">
+<h2>How to Import the Database files to Libellus<a class="headerlink" href="#how-to-import-the-database-files-to-libellus" title="Permalink to this headline">¶</a></h2>
+<p>Start with a clean install of Libellus as described in “How to prepare and install Libellus to a USB stick.”</p>
+<p>Put the two files named journal.couch and chat.couch into libellus/db_files
+Mark that this must be done before startup of Libellus.</p>
+</div>
+<span id="document-update_docs"></span><div class="section" id="update-documentation">
+<h2>Update Documentation<a class="headerlink" href="#update-documentation" title="Permalink to this headline">¶</a></h2>
+<p>All the documentation for Libellus is generated using Sphinx. (<a class="reference external" href="http://sphinx-doc.org/">http://sphinx-doc.org/</a>) Sphinx is written in Python and can be installed with this command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get install python-sphinx
+</pre></div>
+</div>
+<p>Clone the wanted documentation from <a class="reference external" href="https://github.com/Libellus/Libellus-docs">https://github.com/Libellus/Libellus-docs</a> and edit the txt-files containing the documentation text.</p>
+<p>After you are finished run:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make
+</pre></div>
+</div>
+<p>The option singlehtml is used for the documentation in the software.</p>
+</div>
+<span id="document-update_keys"></span><div class="section" id="update-private-public-key-pair">
+<h2>Update Private/Public Key Pair<a class="headerlink" href="#update-private-public-key-pair" title="Permalink to this headline">¶</a></h2>
+<p>Libellus uses a self-signed certificate. We strongly recommend that every company that uses Libellus generate their own key pair. This can be done in the following way on an UNIX like operating system:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ openssl genrsa &gt; server_cert.pem
+$ openssl req -new -x509 -key server_cert.pem -out server_key.pem -days 1095
+</pre></div>
+</div>
+<p>Place the two files in <em>/libellus/config/cert</em></p>
+</div>
+<span id="document-couchdb_config"></span><div class="section" id="couchdb-configuration-file">
+<h2>CouchDB Configuration File<a class="headerlink" href="#couchdb-configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>Each operating system (Windows and OS X) has its own binary-files for CouchDB, the same goes for configuration files.</p>
+<p>For Windows, the configuration files are located in <em>libellus/portable_scripts/windows_database/CouchDB/etc/couchdb</em></p>
+<p>The file local.ini contains an uuid that is generated on startup of Libellus by the script <em>generate_uuidconfig.py</em>. This is to uniquely identify each running instance of Libellus.</p>
+<p><em>default.ini</em> contains all the specific configuration that is in use. All the lines of the configuration is commented, and will not be repeated here.</p>
+</div>
+<span id="document-make_portable"></span><div class="section" id="making-couchdb-windows-portable">
+<h2>Making CouchDB Windows Portable<a class="headerlink" href="#making-couchdb-windows-portable" title="Permalink to this headline">¶</a></h2>
+<p>You might want to upgrade the installation if a new release of CouchDB is available.
+Notice: This step requires some degree of technical knowledge and is not a complete how-to.</p>
+<ul>
+<li><p class="first">Download the official <em>CouchDB</em> Windows installer from couchdb.org</p>
+</li>
+<li><p class="first">Install the application to a known location, eg your desktop.</p>
+</li>
+<li><p class="first">You will also need the DLLs from The Microsoft Visual C++ 2010 Redistributable Package.</p>
+</li>
+<li><p class="first">Edit the file erl.ini located in CouchDB/bin</p>
+</li>
+<li><p class="first">Replace the old config with:</p>
+<div class="highlight-python"><div class="highlight"><pre>[erlang]
+Bindir=..\\erts-5.8.5\\bin
+Progname=erl
+Rootdir=..
+</pre></div>
+</div>
+</li>
+<li><p class="first">In this case the erts version is 5.8.5, edit accordingly.</p>
+</li>
+<li><p class="first">Do the same with the file erl.ini located in CouchDBerts-5.8.5bin</p>
+</li>
+<li><p class="first">Paste the DLLs from Redistributable Package into the /bin and erts-5.8.5/bin folder.</p>
+</li>
+<li><p class="first">You should then test the application in a complete clean environment, like a virtual machine with no extra installed DLLs.</p>
+</li>
+</ul>
+</div>
+<span id="document-libs"></span><div class="section" id="libraries">
+<h2>Libraries<a class="headerlink" href="#libraries" title="Permalink to this headline">¶</a></h2>
+<p>JavaScript and CSS libraries - These works with the current version of Libellus. Upgrading might not work by default and this action is taken at own risk.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="21%" />
+<col width="11%" />
+<col width="37%" />
+<col width="11%" />
+<col width="21%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Library</th>
+<th class="head">Version</th>
+<th class="head">Homepage</th>
+<th class="head">Licence</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>bootstrap.css</td>
+<td>3.0.2</td>
+<td>getbootstrap.com</td>
+<td>Apache v2.0</td>
+<td>General purpose CSS library</td>
+</tr>
+<tr class="row-odd"><td>bootstrapx-clickover.js</td>
+<td>3.1.1</td>
+<td>github.com/lecar-red/bootstrapx-clickover</td>
+<td>Apache v2.0</td>
+<td>Creates boxes on clickover</td>
+</tr>
+<tr class="row-even"><td>bootstrap-dialog.js</td>
+<td>N/A</td>
+<td>github.com/nakupanda/bootstrap3-dialog</td>
+<td>MIT</td>
+<td>Creates dialog boxes</td>
+</tr>
+<tr class="row-odd"><td>jquery.js</td>
+<td>2.1.0</td>
+<td>jquery.com</td>
+<td>MIT</td>
+<td>General purpose JS library</td>
+</tr>
+<tr class="row-even"><td>jquery.tablesorter.js</td>
+<td>2.0.5b</td>
+<td>tablesorter.com</td>
+<td>MIT or GPL</td>
+<td>Sort table data</td>
+</tr>
+<tr class="row-odd"><td>jquery.form.js</td>
+<td>20131228</td>
+<td>github.com/malsup/form</td>
+<td>MIT or GPL</td>
+<td>Submit form data with ajax</td>
+</tr>
+<tr class="row-even"><td>jquery.couch.js</td>
+<td>N/A</td>
+<td>couchdb.apache.org</td>
+<td>Apache v2.0</td>
+<td>Ajax to CouchDB</td>
+</tr>
+<tr class="row-odd"><td>jquery.browser.js</td>
+<td>0.0.6</td>
+<td>github.com/gabceb/jquery-browser-plugin</td>
+<td>MIT</td>
+<td>Needed for CouchDB</td>
+</tr>
+<tr class="row-even"><td>timeline.js</td>
+<td>2.6.1</td>
+<td>almende.github.io/chap-links-library/timeline.html</td>
+<td>Apache v2.0</td>
+<td>Visual timeline</td>
+</tr>
+<tr class="row-odd"><td>moment.js</td>
+<td>2.5.1</td>
+<td>momentjs.com</td>
+<td>MIT</td>
+<td>A datetime library</td>
+</tr>
+<tr class="row-even"><td>bootstrap-datetimepicker.js</td>
+<td>3.0.0</td>
+<td>github.com/Eonasdan/bootstrap-datetimepicker</td>
+<td>Apache v2.0</td>
+<td>A GUI to select datetime</td>
+</tr>
+</tbody>
+</table>
+</div>
+<span id="document-libellus_config"></span><div class="section" id="libellus-configuration-file">
+<h2>Libellus Configuration File<a class="headerlink" href="#libellus-configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>The configuration file for Libellus can be found in <em>/_attachments/script/libellus_config.js</em>
+The file is well commented and should be straightforward to edit. Here you can for the most part edit time intervals, but also max upload size and the classifications values.</p>
+</div>
+<span id="document-install_linux"></span><div class="section" id="how-to-install-libellus-on-ubuntu-linux">
+<h2>How to Install Libellus on Ubuntu Linux<a class="headerlink" href="#how-to-install-libellus-on-ubuntu-linux" title="Permalink to this headline">¶</a></h2>
+<p>Since there are no official portable Linux release, installation on Ubuntu Linux must be done manually.</p>
+<p>Install CouchDB, Git and Curl:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get install couchdb curl git
+</pre></div>
+</div>
+<p>Install CouchApp:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get install python-dev
+$ curl -O http://python-distribute.org/distribute_setup.py
+$ sudo python distribute_setup.py
+$ sudo easy_install pip
+$ sudo pip install -U couchapp
+$ sudo pip install --upgrade couchapp
+</pre></div>
+</div>
+<p>Start CouchDB:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo service couchdb start
+</pre></div>
+</div>
+<p>Clone the Libellus Git repository:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git clone git@github.com:Libellus/Libellus-src.git
+</pre></div>
+</div>
+<p>Change directory into the Libellus-src folder:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cd Libellus-src
+</pre></div>
+</div>
+<p>Push Libellus to CouchDB:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ couchapp push main http://localhost:5984/libellus
+</pre></div>
+</div>
+<p>Run the setup_database.sh file to add databases and views:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ chmod +x ./setup_database.sh
+$ ./setup_database.sh
+</pre></div>
+</div>
+<p>Now view Libellus in your web browser at <a class="reference external" href="http://localhost:5984/libellus/_design/main/index.html">http://localhost:5984/libellus/_design/main/index.html</a>.</p>
+<p>To get a more features of the software, like automatically discovering and replication of multiple Libellus instances, you need to do the following:</p>
+<p>Download the Python script <em>libellus_multicast_1.5.py</em> from the source repository. Generate private/public key pair and change some lines in the configuration. The default Libellus/CouchDB configuration file is <em>default.ini</em>. This can be found at <a class="reference external" href="https://github.com/Libellus/Libellus-portable/tree/master/1.0/libellus/windows_database/CouchDB/etc/couchdb">https://github.com/Libellus/Libellus-portable/tree/master/1.0/libellus/windows_database/CouchDB/etc/couchdb</a></p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">httpd_global_handlers</span><span class="p">]</span>
+<span class="n">journal</span><span class="o">.</span><span class="n">couch</span> <span class="o">=</span> <span class="p">{</span><span class="n">couch_httpd_misc_handlers</span><span class="p">,</span> <span class="n">handle_utils_dir_req</span><span class="p">,</span> <span class="s">&quot;../var/lib/couchdb/journal.couch &quot;</span><span class="p">}</span>
+
+<span class="n">chat</span><span class="o">.</span><span class="n">couch</span> <span class="o">=</span> <span class="p">{</span><span class="n">couch_httpd_misc_handlers</span><span class="p">,</span> <span class="n">handle_utils_dir_req</span><span class="p">,</span> <span class="s">&quot;../var/lib/couchdb/chat.couch&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>By hard coding the URLs to the database files, they can be downloaded inside Libellus in the Utils View.:</p>
+<div class="highlight-python"><div class="highlight"><pre>; _utils = {couch_httpd_misc_handlers, handle_utils_dir_req, &quot;../share/couchdb/www&quot;}
+This disables the administration panel futon.
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>[os_daemons]
+repl = your_path_here/libellus_multicast_1.5.py
+</pre></div>
+</div>
+<p>Make the replication script runs as a daemon inside CouchDB.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">daemons</span><span class="p">]</span>
+<span class="n">httpsd</span> <span class="o">=</span> <span class="p">{</span><span class="n">couch_httpd</span><span class="p">,</span> <span class="n">start_link</span><span class="p">,</span> <span class="p">[</span><span class="n">https</span><span class="p">]}</span>
+</pre></div>
+</div>
+<p>Enables TLS support.:</p>
+<div class="highlight-python"><div class="highlight"><pre>;httpd={couch_httpd, start_link, []}
+</pre></div>
+</div>
+<p>Disables access over HTTP.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">ssl</span><span class="p">]</span>
+<span class="n">cert_file</span> <span class="o">=</span> <span class="n">your_path_here</span><span class="o">/</span><span class="n">server_cert</span><span class="o">.</span><span class="n">pem</span>
+<span class="n">key_file</span> <span class="o">=</span>  <span class="n">your_path_here</span><span class="o">/</span><span class="n">server_key</span><span class="o">.</span><span class="n">pem</span>
+<span class="n">port</span> <span class="o">=</span> <span class="mi">6984</span>
+</pre></div>
+</div>
+<p>The paths to the key pairs and port number for TLS. Uses a port number below the well known ports to avoid running CouchDB with administrator priveleges.:</p>
+<div class="highlight-python"><div class="highlight"><pre>[vhosts]
+127.0.0.1:6984/libellus = /libellus/_design/main/
+</pre></div>
+</div>
+<p>The rewrite pattern which makes 127.0.0.1:6984/libellus/_design/main/index.html point to 127.0.0.1:6984/libellus/index.html.</p>
+</div>
+<span id="document-install_osx"></span><div class="section" id="how-to-install-libellus-on-apple-os-x">
+<h2>How to Install Libellus on Apple OS X<a class="headerlink" href="#how-to-install-libellus-on-apple-os-x" title="Permalink to this headline">¶</a></h2>
+<p>Just like the guide on how to install on Ubuntu, but download CouchDB for OS X at <a class="reference external" href="http://couchdb.apache.org">http://couchdb.apache.org</a>.</p>
+</div>
+<span id="document-changelog"></span><div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<p><strong>1.0</strong></p>
+<ul class="simple">
+<li>Initial release.</li>
+</ul>
+</div>
+<span id="document-contributors"></span><div class="section" id="contributors">
+<h2>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h2>
+<p><ul class="simple">
+<li><a href="https://github.com/dsolstad" target="_blank">dsolstad</a></li>
+<li><a href="https://github.com/ojeey" target="_blank">ojeey </a></li>
+</ul></p>
+</div>
+<span id="document-license"></span><div class="section" id="license">
+<h2>License<a class="headerlink" href="#license" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Licensed under the Apache License, Version 2.0 (the &#8220;License&#8221;); you may
+not use this file except in compliance with the License. You may obtain
+a copy of the License at: apache.org/licenses/LICENSE-2.0</p>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html#document-index">Table Of Contents</a></h3>
+  <ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-introduction">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-technologies">Technologies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-folder_structure">Folder Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-extract_database">How to Extract the Database Files from Libellus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-prepare_install">How to Prepare and Install Libellus to a USB stick</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-import_database">How to Import the Database files to Libellus</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-update_docs">Update Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-update_keys">Update Private/Public Key Pair</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-couchdb_config">CouchDB Configuration File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-make_portable">Making CouchDB Windows Portable</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-libs">Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-libellus_config">Libellus Configuration File</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-install_linux">How to Install Libellus on Ubuntu Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-install_osx">How to Install Libellus on Apple OS X</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-contributors">Contributors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="index.html#document-license">License</a></li>
+</ul>
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li><a href="index.html#document-index">Libellus 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+    </div>
+  </body>
+</html>

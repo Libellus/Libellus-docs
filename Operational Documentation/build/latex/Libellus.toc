@@ -1,0 +1,28 @@
+\select@language {english}
+\contentsline {chapter}{\numberline {1}1.\IeC {\nobreakspace }\IeC {\nobreakspace }\IeC {\nobreakspace }Introduction}{1}{chapter.1}
+\contentsline {chapter}{\numberline {2}User manual}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}Start Libellus}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}Login}{6}{section.2.2}
+\contentsline {section}{\numberline {2.3}Clock}{6}{section.2.3}
+\contentsline {section}{\numberline {2.4}The Journal View}{8}{section.2.4}
+\contentsline {section}{\numberline {2.5}Write New Journal Entry}{9}{section.2.5}
+\contentsline {section}{\numberline {2.6}Appendices}{9}{section.2.6}
+\contentsline {subsection}{\numberline {2.6.1}Comments}{9}{subsection.2.6.1}
+\contentsline {subsection}{\numberline {2.6.2}Actions}{11}{subsection.2.6.2}
+\contentsline {section}{\numberline {2.7}Sorting}{12}{section.2.7}
+\contentsline {section}{\numberline {2.8}The Actions View}{12}{section.2.8}
+\contentsline {section}{\numberline {2.9}The Visualize View}{13}{section.2.9}
+\contentsline {section}{\numberline {2.10}The Chat View}{13}{section.2.10}
+\contentsline {section}{\numberline {2.11}The Utils View}{13}{section.2.11}
+\contentsline {subsection}{\numberline {2.11.1}Export}{15}{subsection.2.11.1}
+\contentsline {subsection}{\numberline {2.11.2}Visit externally}{15}{subsection.2.11.2}
+\contentsline {subsection}{\numberline {2.11.3}Add replication}{15}{subsection.2.11.3}
+\contentsline {subsection}{\numberline {2.11.4}View status and remove replications}{15}{subsection.2.11.4}
+\contentsline {section}{\numberline {2.12}Filters}{15}{section.2.12}
+\contentsline {subsection}{\numberline {2.12.1}Filter by keywords}{15}{subsection.2.12.1}
+\contentsline {subsection}{\numberline {2.12.2}Filter by datetime}{16}{subsection.2.12.2}
+\contentsline {chapter}{\numberline {3}3.\IeC {\nobreakspace }\IeC {\nobreakspace }\IeC {\nobreakspace }FAQ}{17}{chapter.3}
+\contentsline {chapter}{\numberline {4}Changelog}{19}{chapter.4}
+\contentsline {chapter}{\numberline {5}Contributors}{21}{chapter.5}
+\contentsline {chapter}{\numberline {6}Attribution}{23}{chapter.6}
+\contentsline {chapter}{\numberline {7}License}{25}{chapter.7}

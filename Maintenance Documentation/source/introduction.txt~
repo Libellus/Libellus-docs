@@ -1,0 +1,6 @@
+.. sectnum::
+    :suffix: .
+
+Introduction
+****************************************************************************************************************************************************************
+This maintenance documentation show you how to prepare the surrounding system and how to support further development. We recommend that a Unix-like operating system is used for development, since the necessary tools are easily available there. 

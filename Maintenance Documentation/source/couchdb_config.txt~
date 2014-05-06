@@ -1,0 +1,14 @@
+.. sectnum::
+    :suffix: .
+
+CouchDB Configuration File
+*********************************
+
+Each operating system (Windows and OS X) has its own binary-files for CouchDB, the same goes for configuration files.
+
+For Windows, the configuration files are located in *libellus/portable_scripts/windows_database/CouchDB/etc/couchdb*
+
+The file local.ini contains an uuid that is generated on startup of Libellus by the script *generate_uuidconfig.py*. This is to uniquely identify each running instance of Libellus.
+
+*default.ini* contains all the specific configuration that is in use. All the lines of the configuration is commented, and will not be repeated here.
+

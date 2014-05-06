@@ -1,0 +1,15 @@
+How to Extract the Database Files from Libellus
+***********************************************
+The raw database files for Libellus can be extracted in two ways from the system.
+
+**On a running system:**
+
+Open the *Utils View* from the menu.
+Download the two databases *journal* and *chat* by clicking on the download links. This can be performed on a live system without data loss.
+
+**Extract it from the folder structure:**
+
+Enter the root directory of the USB stick. Open *libellus/db_files* and copy the two files named *journal.couch* and *chat.couch*.
+
+Store the files in a safe place. We recommend that you compute hash values for the two files, and store them in a secure separate location. Then before you are going to import the database files again, compute a hash value of the files again, and compare them to the previously generated hash values.
+

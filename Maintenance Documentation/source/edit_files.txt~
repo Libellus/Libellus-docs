@@ -1,0 +1,32 @@
+.. sectnum::
+    :suffix: .
+    
+Edit and Update Files on GNU/Linux
+************************************************
+
+Since the whole applications with all files are stored within the database, there is no files you can edit directly.
+
+If you want to edit *index.html* you have two alternatives. You can use *CouchApp* to clone the pure CouchDB application, edit the files you want and then push it into the database again. You can also get the files by using Git to clone on the whole repository hosted at GitHub.com, and then use CouchApp to push the changes you have made. Note that there are other alternatives to CouchApp, but we recommend this tool.
+
+Install CouchApp::
+
+    $ sudo apt-get install python-dev
+    $ curl -O http://python-distribute.org/distribute_setup.py
+    $ sudo python distribute_setup.py
+    $ sudo easy_install pip
+    $ sudo pip install -U couchapp
+    $ sudo pip install --upgrade couchapp
+
+Install Git::
+
+    $ sudo apt-get install git
+
+Clone the application::
+
+    $ git clone git@github.com:Libellus/Libellus-src.git 
+
+Edit the files you want and save them.
+
+Push changes::
+
+    $ couchapp push main http://localhost:5984/libellus

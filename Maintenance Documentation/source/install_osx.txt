@@ -1,0 +1,4 @@
+How to Install Libellus on Apple OS X
+*******************************************************
+
+Just like the guide on how to install on Ubuntu, but download CouchDB for OS X at http://couchdb.apache.org.

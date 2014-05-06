@@ -1,0 +1,6 @@
+How to Import the Database files to Libellus
+****************************************************
+Start with a clean install of Libellus as described in “How to prepare and install Libellus to a USB stick.”
+
+Put the two files named journal.couch and chat.couch into libellus/db_files
+Mark that this must be done before startup of Libellus.

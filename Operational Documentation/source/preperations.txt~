@@ -1,0 +1,15 @@
+.. sectnum::
+    :suffix: .
+
+Preperations
+************************
+*USB sticks* - The Libellus software should already be installed on USB sticks beforehand. To begin with the installation when the crisis occurs, creates unnecessary stress and delay. The amount of pre installed USB sticks is up to the organization to decide. They need to think about how many people are going to run the software, and then add a couple of backup sticks. If the organization think they will have two instances of Libellus running, they should then have at least four USB sticks ready. 
+
+*USB encryption* - There exist USB sticks with hardware encryption, where you have input buttons on the device to enter the pin code or password to open the USB stick. If anyone get the hold of one of the USB sticks, they can see everything that is going on in Libellus. The upside is that they can only see the traffic if they are in the same local network, and if the RSA keys are updated regularly, the USB sticks they are in hold of are useless. The downside of using USB encryption is that someone needs to remember the password or be written somewhere. It can be devastating if the person that knows the password is not at work that day.
+
+*RSA keys* - Libellus ships with a pair of default keys. If the organization is only planning to use the software locally with no synchronization over the Internet, the updating of the keys is not that important. The exception is that if anyone internally gets a hold of an USB stick and plug it into the local network, they will be a part of Libellus and see all the content if he has the same key pair. We still recommend a routine for the updating the keys in a given interval. 
+
+*Define staff* - In a military or big organization, there usually exist a staff beforehand. The military uses the special staff structure where you have officers for personnel (S1), intelligence and security (S2), operations (S3), logistics (S4), plans (S5), signals (S6), training (S7), finance (S8) and CIMIC (relations to civil affairs) (S9). A big civil concern normally uses the basic corporate structure of Chief Executive Officer (CEO), Chief Operations Officer (COO), Chief Financial Officer (CFO), Chief Legal Officer (CLO), Chief Security Officer (CSO) and so on. In smaller organizations, these roles may not be defined as concretely and some might not exist at all, but under a crisis everyone should have a defined role. Who leads the crisis event. Who should write journal notes. Who is the contact person to different actors etc.
+
+*Training* - When a crisis occurs, even the simplest task becomes more complicated and difficult under stress. We strongly recommend to perform test scenarios as often as possible, to remove the factor where everyone needs to learn a new software while the building is burning, and meet real events with one more confidence. 
+
