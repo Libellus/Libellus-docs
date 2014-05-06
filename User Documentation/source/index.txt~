@@ -3,16 +3,16 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Libellus 1.0 Operational Documentation
+Libellus 1.0 Documentation
 ====================================
 .. toctree::
    :maxdepth: 2
    
-   introductions\
-   preperations
-   initial
-   operating
-   ending
-   changelog
-   contributors
-   license
+   
+   Introduction
+   User manual
+   FAQ
+   Changelog
+   Contributors
+   Attribution 
+   License
